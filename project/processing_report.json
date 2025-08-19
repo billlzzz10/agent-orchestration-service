@@ -1,0 +1,30 @@
+{
+  "summary": {
+    "total_processed": 43,
+    "valid_records": 43,
+    "filtered_out": 0,
+    "success_rate": 100.0
+  },
+  "by_intent": {
+    "instruction": 21,
+    "question": 13,
+    "code": 7,
+    "roleplay": 2
+  },
+  "by_source": {
+    "sample_data": 10,
+    "promptset": 3,
+    "self-instruct": 3,
+    "alpaca": 3,
+    "dolly": 3,
+    "open-orca": 3,
+    "sharegpt": 3,
+    "ultrachat": 3,
+    "evol-instruct": 3,
+    "code-alpaca": 3,
+    "openhermes": 3,
+    "tulu": 3
+  },
+  "filter_reasons": {},
+  "output_file": "enhanced_dataset.jsonl"
+}

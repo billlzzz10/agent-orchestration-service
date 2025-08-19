@@ -1,0 +1,35 @@
+# Python Development Standards
+
+## 🐍 Code Quality Standards
+- Use Python 3.11+ for all scripts
+- Follow PEP 8 style guidelines
+- Use type hints for all functions
+- Implement comprehensive error handling
+- Add docstrings to all functions and classes
+
+## 📦 Dependencies
+- Core: [requirements_integrated.txt](mdc:requirements_integrated.txt)
+- Key packages: datasets, numpy, anthropic, fastapi, uvicorn
+- Use virtual environments for isolation
+
+## 📁 Script Structure
+- All scripts in [scripts/](mdc:scripts/) directory
+- Use shebang: `#!/usr/bin/env python3`
+- Include encoding: `# -*- coding: utf-8 -*-`
+- Add comprehensive logging
+
+## 🚀 Performance Guidelines
+- Use async/await for I/O operations
+- Implement streaming for large datasets
+- Use memory-efficient processing
+- Add progress bars for long operations
+
+## 🧪 Testing Requirements
+- Unit tests for core functions
+- Integration tests for workflows
+- Error scenario testing
+- Performance benchmarking
+description:
+globs:
+alwaysApply: false
+---

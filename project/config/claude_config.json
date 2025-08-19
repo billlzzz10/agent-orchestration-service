@@ -1,0 +1,28 @@
+{
+  "claude_version": "3.5-sonnet",
+  "model_settings": {
+    "max_tokens": 4096,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "anthropic_version": "2023-06-01"
+  },
+  "dataset_config": {
+    "input_format": "jsonl",
+    "output_format": "jsonl",
+    "validation_split": 0.1,
+    "test_split": 0.1
+  },
+  "evaluation_metrics": [
+    "accuracy",
+    "completeness",
+    "relevance",
+    "coherence",
+    "helpfulness"
+  ],
+  "prompt_templates": {
+    "instruction_following": "You are a helpful AI assistant. Please respond to the following instruction: {input}",
+    "code_generation": "Write code to solve the following problem: {input}",
+    "text_analysis": "Analyze the following text and provide insights: {input}",
+    "qa": "Answer the following question: {input}"
+  }
+}

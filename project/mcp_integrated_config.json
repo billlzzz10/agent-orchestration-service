@@ -1,0 +1,236 @@
+{
+  "agents": {
+    "browser_agent": {
+      "type": "automation",
+      "capabilities": [
+        "browser_navigate",
+        "browser_screenshot",
+        "browser_click",
+        "gitlab_create_issue",
+        "gitlab_list_projects",
+        "gitlab_create_merge_request",
+        "slack_send_message",
+        "slack_list_channels",
+        "slack_create_channel",
+        "maps_get_directions",
+        "maps_place_search",
+        "maps_place_details",
+        "database_query",
+        "database_analyze",
+        "file_read",
+        "file_write",
+        "file_list"
+      ],
+      "config": {
+        "model": "claude-3-5-sonnet-20241022",
+        "temperature": 0.7
+      }
+    },
+    "project_agent": {
+      "type": "management",
+      "capabilities": [
+        "browser_navigate",
+        "browser_screenshot",
+        "browser_click",
+        "gitlab_create_issue",
+        "gitlab_list_projects",
+        "gitlab_create_merge_request",
+        "slack_send_message",
+        "slack_list_channels",
+        "slack_create_channel",
+        "maps_get_directions",
+        "maps_place_search",
+        "maps_place_details",
+        "database_query",
+        "database_analyze",
+        "file_read",
+        "file_write",
+        "file_list"
+      ],
+      "config": {
+        "model": "sonar-small-online",
+        "temperature": 0.3
+      }
+    }
+  },
+  "servers": {
+    "puppeteer": {
+      "type": "puppeteer",
+      "enabled": true,
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-puppeteer"
+      ]
+    },
+    "gitlab": {
+      "type": "gitlab",
+      "enabled": true,
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-gitlab"
+      ]
+    },
+    "slack": {
+      "type": "slack",
+      "enabled": true,
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-slack"
+      ]
+    },
+    "google_maps": {
+      "type": "google_maps",
+      "enabled": true,
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-google-maps"
+      ]
+    },
+    "database": {
+      "type": "database",
+      "enabled": true,
+      "command": "genai-toolbox",
+      "args": [
+        "serve",
+        "--config",
+        "tools.yaml"
+      ]
+    },
+    "file_system": {
+      "type": "file_system",
+      "enabled": true,
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-filesystem"
+      ]
+    }
+  },
+  "tools": {
+    "browser_navigate": {
+      "description": "Navigate to a URL in browser",
+      "server": "puppeteer",
+      "enabled": true
+    },
+    "browser_screenshot": {
+      "description": "Take screenshot of current page",
+      "server": "puppeteer",
+      "enabled": true
+    },
+    "browser_click": {
+      "description": "Click element on page",
+      "server": "puppeteer",
+      "enabled": true
+    },
+    "gitlab_create_issue": {
+      "description": "Create GitLab issue",
+      "server": "gitlab",
+      "enabled": true
+    },
+    "gitlab_list_projects": {
+      "description": "List GitLab projects",
+      "server": "gitlab",
+      "enabled": true
+    },
+    "gitlab_create_merge_request": {
+      "description": "Create GitLab merge request",
+      "server": "gitlab",
+      "enabled": true
+    },
+    "slack_send_message": {
+      "description": "Send message to Slack channel",
+      "server": "slack",
+      "enabled": true
+    },
+    "slack_list_channels": {
+      "description": "List Slack channels",
+      "server": "slack",
+      "enabled": true
+    },
+    "slack_create_channel": {
+      "description": "Create Slack channel",
+      "server": "slack",
+      "enabled": true
+    },
+    "maps_get_directions": {
+      "description": "Get directions between locations",
+      "server": "google_maps",
+      "enabled": true
+    },
+    "maps_place_search": {
+      "description": "Search for places",
+      "server": "google_maps",
+      "enabled": true
+    },
+    "maps_place_details": {
+      "description": "Get place details",
+      "server": "google_maps",
+      "enabled": true
+    },
+    "database_query": {
+      "description": "Execute SQL query",
+      "server": "database",
+      "enabled": true
+    },
+    "database_analyze": {
+      "description": "Analyze database schema",
+      "server": "database",
+      "enabled": true
+    },
+    "file_read": {
+      "description": "Read file content",
+      "server": "file_system",
+      "enabled": true
+    },
+    "file_write": {
+      "description": "Write content to file",
+      "server": "file_system",
+      "enabled": true
+    },
+    "file_list": {
+      "description": "List files in directory",
+      "server": "file_system",
+      "enabled": true
+    }
+  },
+  "system_status": {
+    "total_agents": 2,
+    "total_tools": 34,
+    "workflow_history_count": 6,
+    "server_status": {
+      "total_servers": 6,
+      "running_servers": 0,
+      "servers": {
+        "puppeteer": {
+          "type": "puppeteer",
+          "enabled": true,
+          "running": false
+        },
+        "gitlab": {
+          "type": "gitlab",
+          "enabled": true,
+          "running": false
+        },
+        "slack": {
+          "type": "slack",
+          "enabled": true,
+          "running": false
+        },
+        "google_maps": {
+          "type": "google_maps",
+          "enabled": true,
+          "running": false
+        },
+        "database": {
+          "type": "database",
+          "enabled": true,
+          "running": false
+        },
+        "file_system": {
+          "type": "file_system",
+          "enabled": true,
+          "running": false
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "total_pairs": 1000,
+  "sources": {
+    "openorca": 647,
+    "openhermes": 353
+  },
+  "intents": {
+    "qa": 540,
+    "other": 199,
+    "assistant": 82,
+    "reasoning": 55,
+    "code": 71,
+    "creative": 19,
+    "writing": 11,
+    "math": 18,
+    "data": 5
+  },
+  "clusters": {
+    "21": 49,
+    "4": 117,
+    "1": 54,
+    "7": 66,
+    "8": 94,
+    "0": 145,
+    "10": 43,
+    "17": 33,
+    "14": 63,
+    "19": 54,
+    "15": 40,
+    "16": 30,
+    "6": 19,
+    "9": 17,
+    "12": 10,
+    "18": 16,
+    "13": 14,
+    "2": 34,
+    "20": 18,
+    "3": 23,
+    "5": 41,
+    "11": 20
+  },
+  "length_stats": {
+    "input": {
+      "min": 5,
+      "max": 281,
+      "avg": 70.564
+    },
+    "output": {
+      "min": 3,
+      "max": 256,
+      "avg": 91.634
+    }
+  },
+  "quality_metrics": {
+    "diversity_score": 0.9,
+    "balance_score": 0.009259259259259259,
+    "coverage_score": 0.2,
+    "cluster_efficiency": 0.022
+  }
+}

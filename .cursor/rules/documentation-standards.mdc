@@ -1,0 +1,24 @@
+# Documentation Standards
+
+## 📚 README Files
+- [MAIN_README.md](mdc:MAIN_README.md) - Main project documentation
+- [QUICK_START.md](mdc:QUICK_START.md) - Quick start guide
+- [DEVELOPMENT_RULES.md](mdc:DEVELOPMENT_RULES.md) - Development guidelines
+- [CURRENT_STATUS.md](mdc:CURRENT_STATUS.md) - Project status tracking
+
+## 📋 Documentation Guidelines
+- Use clear, concise language
+- Include code examples
+- Add troubleshooting sections
+- Keep documentation up-to-date
+
+## 🔑 Key Documentation
+- Installation and setup instructions
+- API documentation
+- User guides and tutorials
+- Development guidelines
+- Troubleshooting guides
+description:
+globs:
+alwaysApply: false
+---

@@ -1,0 +1,19 @@
+{"user_input": "How do I make a cake?", "target_prompt": "To make a cake, you'll need flour, sugar, eggs, and butter. Mix the dry ingredients, then add wet ingredients and bake at 350°F for 30 minutes."}
+{"user_input": "What is machine learning?", "target_prompt": "Machine learning is a subset of artificial intelligence that enables computers to learn and improve from experience without being explicitly programmed."}
+{"user_input": "How to write a Python function?", "target_prompt": "To write a Python function, use the 'def' keyword followed by the function name and parameters. Add a colon and indent the function body."}
+{"user_input": "What is the capital of France?", "target_prompt": "The capital of France is Paris, which is known for the Eiffel Tower, Louvre Museum, and Notre-Dame Cathedral."}
+{"user_input": "How to cook rice?", "target_prompt": "To cook rice, rinse it first, then add water in a 2:1 ratio. Bring to boil, reduce heat, cover and simmer for 18-20 minutes."}
+{"user_input": "What is blockchain technology?", "target_prompt": "Blockchain is a distributed ledger technology that maintains a continuously growing list of records, called blocks, which are linked and secured using cryptography."}
+{"user_input": "How to learn a new language?", "target_prompt": "To learn a new language, start with basic vocabulary, practice daily, use language apps, watch movies, and try to speak with native speakers."}
+{"user_input": "What is climate change?", "target_prompt": "Climate change refers to long-term shifts in global weather patterns and average temperatures, primarily caused by human activities like burning fossil fuels."}
+{"user_input": "How to take good photos?", "target_prompt": "To take good photos, pay attention to lighting, composition, focus, and timing. Use the rule of thirds and experiment with different angles."}
+{"user_input": "What is quantum computing?", "target_prompt": "Quantum computing uses quantum mechanical phenomena like superposition and entanglement to process information in ways that classical computers cannot."}
+{"user_input": "Write a Python function to calculate factorial", "target_prompt": "def factorial(n): return 1 if n <= 1 else n * factorial(n-1)"}
+{"user_input": "Explain machine learning", "target_prompt": "Machine learning is a subset of AI that enables computers to learn from data without explicit programming."}
+{"user_input": "How to cook pasta?", "target_prompt": "Boil water, add pasta, cook for 8-10 minutes, drain and serve with sauce."}
+{"user_input": "What is blockchain?", "target_prompt": "Blockchain is a distributed ledger technology that maintains records in blocks linked by cryptography."}
+{"user_input": "How to learn programming?", "target_prompt": "Start with basics, practice daily, build projects, and learn from online resources."}
+{"user_input": "Explain quantum computing", "target_prompt": "Quantum computing uses quantum mechanical phenomena to process information in ways classical computers cannot."}
+{"user_input": "Write a poem about AI", "target_prompt": "In circuits deep and algorithms bright, artificial minds take flight. Learning, growing, day by day, in digital dreams they find their way."}
+{"user_input": "How to make coffee?", "target_prompt": "Grind beans, heat water to 200°F, pour over grounds, let steep for 4 minutes, then enjoy."}
+{"user_input": "What is climate change?", "target_prompt": "Climate change refers to long-term shifts in global weather patterns caused by human activities."}

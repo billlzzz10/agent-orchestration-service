@@ -1,0 +1,30 @@
+{
+  "total_pairs": 19,
+  "sources": {
+    "unknown": 19
+  },
+  "intents": {
+    "unknown": 19
+  },
+  "clusters": {
+    "-1": 19
+  },
+  "length_stats": {
+    "input": {
+      "min": 0,
+      "max": 0,
+      "avg": 0.0
+    },
+    "output": {
+      "min": 0,
+      "max": 0,
+      "avg": 0.0
+    }
+  },
+  "quality_metrics": {
+    "diversity_score": 0.1,
+    "balance_score": 1.0,
+    "coverage_score": 0.1,
+    "cluster_efficiency": 0.05263157894736842
+  }
+}

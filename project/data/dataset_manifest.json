@@ -1,0 +1,117 @@
+{
+  "created_at": "2025-08-19T19:14:32.159261",
+  "version": "1.0",
+  "total_datasets": 10,
+  "datasets": {
+    "alpaca": {
+      "source": "https://raw.githubusercontent.com/tatsu-lab/alpaca/main/alpaca_data.json",
+      "intent": "instruction",
+      "quality": "high",
+      "estimated_size": "52K",
+      "downloaded": false,
+      "file_path": "data/raw/alpaca.json",
+      "download_time": "2025-08-19T19:14:32.546839",
+      "file_size": 495,
+      "note": "Sample data created due to download failure"
+    },
+    "dolly": {
+      "source": "https://huggingface.co/datasets/databricks/databricks-dolly-15k/resolve/main/data/train-00000-of-00001.json",
+      "intent": "instruction",
+      "quality": "high",
+      "estimated_size": "15K",
+      "downloaded": false,
+      "file_path": "data/raw/dolly.json",
+      "download_time": "2025-08-19T19:14:32.938852",
+      "file_size": 495,
+      "note": "Sample data created due to download failure"
+    },
+    "self-instruct": {
+      "source": "https://raw.githubusercontent.com/yizhongw/self-instruct/main/data/self_instruct.json",
+      "intent": "instruction",
+      "quality": "medium",
+      "estimated_size": "82K",
+      "downloaded": false,
+      "file_path": "data/raw/self-instruct.json",
+      "download_time": "2025-08-19T19:14:33.276640",
+      "file_size": 495,
+      "note": "Sample data created due to download failure"
+    },
+    "open-orca": {
+      "source": "https://huggingface.co/datasets/Open-Orca/OpenOrca/resolve/main/data/train.json",
+      "intent": "roleplay",
+      "quality": "high",
+      "estimated_size": "1M",
+      "downloaded": false,
+      "file_path": "data/raw/open-orca.json",
+      "download_time": "2025-08-19T19:14:33.582189",
+      "file_size": 608,
+      "note": "Sample data created due to download failure"
+    },
+    "sharegpt": {
+      "source": "https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered/resolve/main/data/train.json",
+      "intent": "conversation",
+      "quality": "medium",
+      "estimated_size": "90K",
+      "downloaded": false,
+      "file_path": "data/raw/sharegpt.json",
+      "download_time": "2025-08-19T19:14:33.890209",
+      "file_size": 543,
+      "note": "Sample data created due to download failure"
+    },
+    "ultrachat": {
+      "source": "https://huggingface.co/datasets/stingning/ultrachat/resolve/main/data/train.json",
+      "intent": "conversation",
+      "quality": "high",
+      "estimated_size": "1.5M",
+      "downloaded": false,
+      "file_path": "data/raw/ultrachat.json",
+      "download_time": "2025-08-19T19:14:34.222026",
+      "file_size": 543,
+      "note": "Sample data created due to download failure"
+    },
+    "evol-instruct": {
+      "source": "https://huggingface.co/datasets/WizardLM/WizardLM_evol_instruct_V2_196k/resolve/main/data/train.json",
+      "intent": "instruction",
+      "quality": "high",
+      "estimated_size": "196K",
+      "downloaded": false,
+      "file_path": "data/raw/evol-instruct.json",
+      "download_time": "2025-08-19T19:14:34.824384",
+      "file_size": 495,
+      "note": "Sample data created due to download failure"
+    },
+    "code-alpaca": {
+      "source": "https://raw.githubusercontent.com/sahil280114/codealpaca/main/data/code_alpaca_20k.json",
+      "intent": "code",
+      "quality": "medium",
+      "estimated_size": "20K",
+      "downloaded": false,
+      "file_path": "data/raw/code-alpaca.json",
+      "download_time": "2025-08-19T19:14:35.193515",
+      "file_size": 669,
+      "note": "Sample data created due to download failure"
+    },
+    "openhermes": {
+      "source": "https://huggingface.co/datasets/teknium/OpenHermes-2.5/resolve/main/data/train.json",
+      "intent": "instruction",
+      "quality": "very_high",
+      "estimated_size": "1M",
+      "downloaded": false,
+      "file_path": "data/raw/openhermes.json",
+      "download_time": "2025-08-19T19:14:35.510170",
+      "file_size": 495,
+      "note": "Sample data created due to download failure"
+    },
+    "tulu": {
+      "source": "https://huggingface.co/datasets/allenai/tulu-v2-sft-mixture/resolve/main/data/train.json",
+      "intent": "mixed",
+      "quality": "high",
+      "estimated_size": "326K",
+      "downloaded": false,
+      "file_path": "data/raw/tulu.json",
+      "download_time": "2025-08-19T19:14:35.819132",
+      "file_size": 550,
+      "note": "Sample data created due to download failure"
+    }
+  }
+}

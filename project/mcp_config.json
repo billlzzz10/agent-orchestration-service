@@ -1,0 +1,270 @@
+{
+  "mcpServers": {
+    "puppeteer": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-puppeteer"
+      ],
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "gitlab": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-gitlab"
+      ],
+      "env": {
+        "GITLAB_TOKEN": "${GITLAB_TOKEN}",
+        "GITLAB_URL": "https://gitlab.com"
+      }
+    },
+    "slack": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-slack"
+      ],
+      "env": {
+        "SLACK_BOT_TOKEN": "${SLACK_BOT_TOKEN}",
+        "SLACK_SIGNING_SECRET": "${SLACK_SIGNING_SECRET}"
+      }
+    },
+    "google-maps": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-google-maps"
+      ],
+      "env": {
+        "GOOGLE_MAPS_API_KEY": "${GOOGLE_MAPS_API_KEY}"
+      }
+    },
+    "database": {
+      "command": "genai-toolbox",
+      "args": [
+        "serve",
+        "--config",
+        "tools.yaml"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "${GOOGLE_APPLICATION_CREDENTIALS}"
+      }
+    },
+    "file-system": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-filesystem"
+      ],
+      "env": {
+        "ROOT_PATH": "${PWD}"
+      }
+    },
+    "perplexity": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-perplexity"
+      ],
+      "env": {
+        "PERPLEXITY_API_KEY": "${PERPLEXITY_API_KEY}"
+      }
+    }
+  },
+  "tools": {
+    "browser_automation": {
+      "server": "puppeteer",
+      "capabilities": [
+        "navigate",
+        "screenshot",
+        "click",
+        "type",
+        "scroll"
+      ]
+    },
+    "project_management": {
+      "server": "gitlab",
+      "capabilities": [
+        "create_issue",
+        "list_projects",
+        "create_merge_request",
+        "comment_on_issue"
+      ]
+    },
+    "communication": {
+      "server": "slack",
+      "capabilities": [
+        "send_message",
+        "list_channels",
+        "create_channel",
+        "upload_file"
+      ]
+    },
+    "location_services": {
+      "server": "google-maps",
+      "capabilities": [
+        "get_directions",
+        "place_search",
+        "place_details",
+        "geocoding"
+      ]
+    },
+    "data_management": {
+      "server": "database",
+      "capabilities": [
+        "execute_query",
+        "analyze_schema",
+        "create_table",
+        "backup_data"
+      ]
+    },
+    "file_operations": {
+      "server": "file-system",
+      "capabilities": [
+        "read_file",
+        "write_file",
+        "list_files",
+        "create_directory"
+      ]
+    },
+    "ai_search": {
+      "server": "perplexity",
+      "capabilities": [
+        "web_search",
+        "chat_completion",
+        "real_time_search"
+      ]
+    }
+  },
+  "agents": {
+    "automation_agent": {
+      "type": "automation",
+      "tools": [
+        "browser_automation",
+        "file_operations"
+      ],
+      "model": "claude-3-5-sonnet-20241022",
+      "temperature": 0.7
+    },
+    "project_agent": {
+      "type": "management",
+      "tools": [
+        "project_management",
+        "communication",
+        "data_management"
+      ],
+      "model": "sonar-small-online",
+      "temperature": 0.3
+    },
+    "research_agent": {
+      "type": "research",
+      "tools": [
+        "ai_search",
+        "location_services",
+        "file_operations"
+      ],
+      "model": "claude-3-5-sonnet-20241022",
+      "temperature": 0.5
+    }
+  },
+  "workflows": {
+    "web_automation": {
+      "description": "Automate web browser tasks",
+      "steps": [
+        {
+          "agent": "automation_agent",
+          "action": "navigate",
+          "parameters": {
+            "url": "https://example.com"
+          }
+        },
+        {
+          "agent": "automation_agent",
+          "action": "screenshot",
+          "parameters": {
+            "path": "screenshot.png"
+          }
+        }
+      ]
+    },
+    "project_setup": {
+      "description": "Set up new project with GitLab and Slack",
+      "steps": [
+        {
+          "agent": "project_agent",
+          "action": "create_issue",
+          "parameters": {
+            "title": "Project Setup",
+            "description": "Initial project setup tasks"
+          }
+        },
+        {
+          "agent": "project_agent",
+          "action": "send_message",
+          "parameters": {
+            "channel": "general",
+            "message": "New project setup completed"
+          }
+        }
+      ]
+    },
+    "research_task": {
+      "description": "Research task with AI search and location data",
+      "steps": [
+        {
+          "agent": "research_agent",
+          "action": "web_search",
+          "parameters": {
+            "query": "latest AI developments"
+          }
+        },
+        {
+          "agent": "research_agent",
+          "action": "get_directions",
+          "parameters": {
+            "origin": "Bangkok",
+            "destination": "Chiang Mai"
+          }
+        }
+      ]
+    }
+  },
+  "monitoring": {
+    "logging": {
+      "level": "INFO",
+      "format": "JSON",
+      "output": "file",
+      "file_path": "logs/mcp_system.log"
+    },
+    "metrics": {
+      "enabled": true,
+      "interval": 60,
+      "exporters": ["prometheus", "grafana"]
+    },
+    "health_checks": {
+      "enabled": true,
+      "interval": 30,
+      "timeout": 10
+    }
+  },
+  "security": {
+    "api_keys": {
+      "required": [
+        "GITLAB_TOKEN",
+        "SLACK_BOT_TOKEN",
+        "GOOGLE_MAPS_API_KEY",
+        "PERPLEXITY_API_KEY"
+      ],
+      "optional": [
+        "GOOGLE_APPLICATION_CREDENTIALS"
+      ]
+    },
+    "rate_limiting": {
+      "enabled": true,
+      "requests_per_minute": 60,
+      "burst_limit": 10
+    },
+    "input_validation": {
+      "enabled": true,
+      "max_input_length": 10000,
+      "allowed_file_types": ["txt", "json", "yaml", "md"]
+    }
+  }
+}

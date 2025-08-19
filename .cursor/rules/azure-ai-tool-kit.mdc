@@ -1,0 +1,49 @@
+# Azure AI Toolkit - Fine-tuning Pipeline
+
+## 🎯 Azure AI Services Integration
+- **Azure OpenAI Service** - Model fine-tuning and deployment
+- **Azure Machine Learning** - Training orchestration
+- **Azure Container Registry** - Model containerization
+- **Azure Kubernetes Service** - Model deployment
+- **Azure Cognitive Services** - Model evaluation
+
+## 🚀 Fine-tuning Workflow
+1. **Dataset Preparation** - Format data for Azure OpenAI
+2. **Model Selection** - Choose base model (GPT-4, GPT-3.5-turbo)
+3. **Training Configuration** - Set hyperparameters
+4. **Fine-tuning Job** - Submit to Azure OpenAI
+5. **Model Evaluation** - Quality assessment
+6. **Deployment** - Deploy to production
+
+## 📊 Dataset Requirements
+- **Format**: JSONL with "messages" array
+- **Size**: Minimum 10 examples, recommended 100+
+- **Quality**: High-quality, diverse conversations
+- **Validation**: 80/20 train/validation split
+
+## 🔧 Azure CLI Commands
+```bash
+# Install Azure CLI
+az login
+az account set --subscription <subscription-id>
+
+# Create Azure OpenAI resource
+az cognitiveservices account create --name <resource-name> --resource-group <rg-name> --kind OpenAI --sku S0 --location eastus
+
+# Upload training data
+az storage blob upload --account-name <storage-account> --container-name <container> --name training_data.jsonl --file training_data.jsonl
+```
+
+## 📈 Model Evaluation Metrics
+- **Accuracy**: Response quality assessment
+- **Latency**: Response time measurement
+- **Cost**: Token usage optimization
+- **Safety**: Content filtering compliance
+
+## 🎬 GIF Export Capabilities
+- **OpenSource Models**: Support for local model inference
+- **Animation**: Real-time model responses
+- **Recording**: Screen capture and GIF generation
+- **Sharing**: Easy export and distribution
+alwaysApply: true
+---

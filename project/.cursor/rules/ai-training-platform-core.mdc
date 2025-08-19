@@ -1,0 +1,47 @@
+---
+alwaysApply: true
+description: AI Training Platform Core Architecture and Development Guidelines
+---
+
+# AI Training Platform - Core Architecture
+
+## 🎯 Project Overview
+This is a **Multi-Agent Orchestration System** with **Dataset Processing** and **MCP Integration** for AI development.
+
+## 🏗️ Core Components
+
+### Dataset Processing Pipeline
+- [build_pairs.py](mdc:scripts/build_pairs.py) - Main dataset generation script
+- [evaluate_dataset.py](mdc:scripts/evaluate_dataset.py) - Dataset quality evaluation
+- [enhanced_download.py](mdc:scripts/enhanced_download.py) - Dataset downloading
+
+### Multi-Agent System
+- [agent_orchestrator.py](mdc:scripts/agent_orchestrator.py) - Core agent orchestration
+- [integrated_agent_system.py](mdc:scripts/integrated_agent_system.py) - External tool integration
+- [mcp_integrated_system.py](mdc:scripts/mcp_integrated_system.py) - MCP server management
+
+### Claude Integration
+- [claude_setup.py](mdc:scripts/claude_setup.py) - Claude environment setup
+- [claude_demo.py](mdc:scripts/claude_demo.py) - Claude API demonstration
+- [claude_eval.py](mdc:scripts/claude_eval.py) - Response evaluation
+
+## 📁 Project Structure
+- [scripts/](mdc:scripts/) - Core Python scripts
+- [config/](mdc:config/) - Configuration files
+- [data/](mdc:data/) - Dataset storage
+- [requirements_integrated.txt](mdc:requirements_integrated.txt) - Dependencies
+
+## 🔧 Development Guidelines
+- Use Python 3.11+ for compatibility
+- Follow TypeScript patterns in Python code
+- Implement comprehensive error handling
+- Use async/await for I/O operations
+- Maintain clean architecture principles
+
+## 🚀 Key Features
+- Multi-source dataset processing (UltraChat, OpenOrca, WizardLM, etc.)
+- Intent classification and clustering
+- Quality evaluation metrics
+- Multi-agent orchestration (10+ nodes)
+- MCP integration for external tools
+- Claude API integration

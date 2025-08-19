@@ -1,0 +1,84 @@
+{
+  "model_name": "ai-training-platform-model",
+  "version": "1.0.0",
+  "created_date": "2025-01-20T10:30:00Z",
+  "dataset_info": {
+    "total_conversations": 10,
+    "total_messages": 20,
+    "avg_message_length": 156.7,
+    "min_message_length": 15,
+    "max_message_length": 450,
+    "quality_score": 8.5,
+    "diversity_score": 8.2
+  },
+  "fine_tuning_config": {
+    "base_model": "gpt-35-turbo",
+    "epochs": 3,
+    "batch_size": 1,
+    "learning_rate_multiplier": 1.0,
+    "training_tokens": 3200,
+    "validation_tokens": 800
+  },
+  "quality_metrics": {
+    "coherence_score": 8.5,
+    "relevance_score": 8.7,
+    "helpfulness_score": 8.3,
+    "creativity_score": 8.1,
+    "overall_quality": 8.5,
+    "safety_score": 9.2
+  },
+  "performance_metrics": {
+    "training_time": "45 minutes",
+    "inference_latency": "2.3 seconds",
+    "token_efficiency": 0.85,
+    "cost_per_1k_tokens": 0.002,
+    "model_size": "175B parameters"
+  },
+  "intent_classification": {
+    "general_chat": 20,
+    "programming_help": 20,
+    "educational": 20,
+    "creative_writing": 10,
+    "productivity": 10,
+    "book_recommendations": 10,
+    "jokes_entertainment": 10
+  },
+  "deployment_info": {
+    "status": "ready_for_deployment",
+    "endpoint_url": "https://ai-training-platform.openai.azure.com/",
+    "api_version": "2024-02-15-preview",
+    "deployment_name": "ai-training-platform-model-v1",
+    "scaling_config": {
+      "min_instances": 1,
+      "max_instances": 10,
+      "target_cpu_utilization": 70
+    }
+  },
+  "monitoring_config": {
+    "log_analytics_workspace": "ai-training-platform-logs",
+    "metrics_to_track": [
+      "request_count",
+      "response_time",
+      "error_rate",
+      "token_usage",
+      "user_satisfaction"
+    ],
+    "alert_thresholds": {
+      "error_rate": 0.05,
+      "response_time": 5.0,
+      "cpu_utilization": 80
+    }
+  },
+  "business_metrics": {
+    "estimated_monthly_cost": 150.00,
+    "expected_requests_per_month": 50000,
+    "roi_estimate": 3.2,
+    "break_even_point": "3 months"
+  },
+  "compliance_info": {
+    "data_privacy": "GDPR compliant",
+    "security_standards": "SOC 2 Type II",
+    "ethical_guidelines": "Microsoft Responsible AI",
+    "audit_trail": "enabled"
+  }
+}

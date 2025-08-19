@@ -1,0 +1,35 @@
+# Web Application Development
+
+## 🚀 FastAPI Framework
+- Use FastAPI for web applications
+- Implement RESTful API endpoints
+- Use Pydantic for data validation
+- Add comprehensive API documentation
+
+## 🎨 Frontend Guidelines
+- Use modern HTML5 and CSS3
+- Implement responsive design
+- Use JavaScript for dynamic interactions
+- Add real-time progress updates
+
+## 🔒 Security Standards
+- Implement proper authentication
+- Use environment variables for secrets
+- Add rate limiting for API endpoints
+- Validate all user inputs
+
+## 📊 User Experience
+- Intuitive dataset creation forms
+- Real-time progress tracking
+- Quality metrics visualization
+- Download functionality for datasets
+
+## 🚀 Deployment
+- Use uvicorn for development server
+- Implement health check endpoints
+- Add monitoring and logging
+- Prepare for production deployment
+description:
+globs:
+alwaysApply: false
+---

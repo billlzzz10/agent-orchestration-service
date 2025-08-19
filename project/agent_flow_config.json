@@ -1,0 +1,329 @@
+{
+  "flow_name": "Multi-Agent Orchestration System",
+  "version": "1.0.0",
+  "description": "ระบบจัดการ Agent หลายตัวที่มี ≥6 โหนด และซับซ้อนเทียบเท่าหรือมากกว่าภาพที่อัปโหลด",
+  "nodes": [
+    {
+      "id": "input_1",
+      "name": "Listen for incoming events",
+      "type": "input",
+      "config": {
+        "source": "telegram",
+        "event_types": ["message", "command"],
+        "webhook_url": "https://api.telegram.org/bot{token}/setWebhook",
+        "timeout": 30
+      },
+      "position": {"x": 100, "y": 100},
+      "connections": ["agent_1"]
+    },
+    {
+      "id": "agent_1",
+      "name": "AI Agent1: Tools Agent",
+      "type": "agent",
+      "config": {
+        "agent_type": "tools_agent",
+        "capabilities": ["text_analysis", "image_generation", "code_analysis", "data_validation"],
+        "model": "claude-3-5-sonnet-20241022",
+        "temperature": 0.7,
+        "max_tokens": 2048
+      },
+      "position": {"x": 300, "y": 100},
+      "connections": ["tool_1", "memory_1"]
+    },
+    {
+      "id": "tool_1",
+      "name": "OpenAI Chat Model",
+      "type": "tool",
+      "config": {
+        "model": "gpt-4",
+        "max_tokens": 2048,
+        "temperature": 0.7,
+        "api_key": "${OPENAI_API_KEY}",
+        "endpoint": "https://api.openai.com/v1/chat/completions"
+      },
+      "position": {"x": 500, "y": 100},
+      "connections": ["agent_2"]
+    },
+    {
+      "id": "memory_1",
+      "name": "Window Buffer Memory",
+      "type": "memory",
+      "config": {
+        "max_size": 1000,
+        "retention_policy": "lru",
+        "storage_type": "redis",
+        "ttl": 3600
+      },
+      "position": {"x": 300, "y": 300},
+      "connections": ["agent_2"]
+    },
+    {
+      "id": "agent_2",
+      "name": "Reasoning Agent",
+      "type": "agent",
+      "config": {
+        "agent_type": "reasoning_agent",
+        "capabilities": ["logical_reasoning", "pattern_recognition", "decision_making"],
+        "model": "claude-3-5-sonnet-20241022",
+        "temperature": 0.3,
+        "max_tokens": 1024
+      },
+      "position": {"x": 700, "y": 100},
+      "connections": ["tool_2", "agent_3"]
+    },
+    {
+      "id": "tool_2",
+      "name": "Generate image in Dalle",
+      "type": "tool",
+      "config": {
+        "model": "dall-e-3",
+        "size": "1024x1024",
+        "quality": "standard",
+        "style": "vivid",
+        "api_key": "${OPENAI_API_KEY}",
+        "endpoint": "https://api.openai.com/v1/images/generations"
+      },
+      "position": {"x": 900, "y": 100},
+      "connections": ["agent_3"]
+    },
+    {
+      "id": "agent_3",
+      "name": "Validation Agent",
+      "type": "agent",
+      "config": {
+        "agent_type": "validation_agent",
+        "capabilities": ["data_validation", "quality_assurance", "error_detection"],
+        "model": "claude-3-5-sonnet-20241022",
+        "temperature": 0.1,
+        "max_tokens": 512
+      },
+      "position": {"x": 1100, "y": 100},
+      "connections": ["condition_1"]
+    },
+    {
+      "id": "condition_1",
+      "name": "Quality Check Condition",
+      "type": "condition",
+      "config": {
+        "condition_type": "quality_threshold",
+        "threshold": 0.8,
+        "metrics": ["completeness", "relevance", "coherence", "helpfulness"],
+        "fallback_action": "retry"
+      },
+      "position": {"x": 1300, "y": 100},
+      "connections": ["agent_4", "agent_1"]
+    },
+    {
+      "id": "agent_4",
+      "name": "Creative Agent",
+      "type": "agent",
+      "config": {
+        "agent_type": "creative_agent",
+        "capabilities": ["content_generation", "creative_writing", "artistic_expression"],
+        "model": "claude-3-5-sonnet-20241022",
+        "temperature": 0.9,
+        "max_tokens": 2048
+      },
+      "position": {"x": 1500, "y": 100},
+      "connections": ["output_1"]
+    },
+    {
+      "id": "output_1",
+      "name": "Send final reply",
+      "type": "output",
+      "config": {
+        "destination": "telegram",
+        "format": "text",
+        "include_metadata": true,
+        "rate_limit": 30
+      },
+      "position": {"x": 1700, "y": 100},
+      "connections": []
+    }
+  ],
+  "agents": {
+    "tools_agent_1": {
+      "type": "tools_agent",
+      "capabilities": ["text_analysis", "image_generation", "code_analysis", "data_validation"],
+      "config": {
+        "model": "claude-3-5-sonnet-20241022",
+        "temperature": 0.7,
+        "max_tokens": 2048
+      }
+    },
+    "reasoning_agent_1": {
+      "type": "reasoning_agent",
+      "capabilities": ["logical_reasoning", "pattern_recognition", "decision_making"],
+      "config": {
+        "model": "claude-3-5-sonnet-20241022",
+        "temperature": 0.3,
+        "max_tokens": 1024
+      }
+    },
+    "creative_agent_1": {
+      "type": "creative_agent",
+      "capabilities": ["content_generation", "creative_writing", "artistic_expression"],
+      "config": {
+        "model": "claude-3-5-sonnet-20241022",
+        "temperature": 0.9,
+        "max_tokens": 2048
+      }
+    },
+    "validation_agent_1": {
+      "type": "validation_agent",
+      "capabilities": ["data_validation", "quality_assurance", "error_detection"],
+      "config": {
+        "model": "claude-3-5-sonnet-20241022",
+        "temperature": 0.1,
+        "max_tokens": 512
+      }
+    },
+    "coordination_agent_1": {
+      "type": "coordination_agent",
+      "capabilities": ["agent_coordination", "workflow_management", "task_routing"],
+      "config": {
+        "model": "claude-3-5-sonnet-20241022",
+        "temperature": 0.5,
+        "max_tokens": 1024
+      }
+    }
+  },
+  "tools": {
+    "text_analyzer": {
+      "name": "text_analyzer",
+      "description": "Analyze text content for sentiment, word count, and structure",
+      "function": "text_analysis",
+      "parameters": {
+        "text": {"type": "string", "description": "Text to analyze"}
+      }
+    },
+    "image_generator": {
+      "name": "image_generator",
+      "description": "Generate images from text descriptions using DALL-E",
+      "function": "image_generation",
+      "parameters": {
+        "prompt": {"type": "string", "description": "Image description"},
+        "size": {"type": "string", "default": "1024x1024", "description": "Image size"}
+      }
+    },
+    "code_analyzer": {
+      "name": "code_analyzer",
+      "description": "Analyze code structure and complexity",
+      "function": "code_analysis",
+      "parameters": {
+        "code": {"type": "string", "description": "Code to analyze"}
+      }
+    },
+    "data_validator": {
+      "name": "data_validator",
+      "description": "Validate data format and structure",
+      "function": "data_validation",
+      "parameters": {
+        "data": {"type": "object", "description": "Data to validate"}
+      }
+    }
+  },
+  "memory": {
+    "type": "redis",
+    "config": {
+      "host": "localhost",
+      "port": 6379,
+      "db": 0,
+      "max_size": 1000,
+      "ttl": 3600
+    }
+  },
+  "workflow": {
+    "name": "Multi-Agent Processing Pipeline",
+    "description": "Complete workflow from input to output with multiple agent coordination",
+    "steps": [
+      {
+        "step": 1,
+        "name": "Input Processing",
+        "node": "input_1",
+        "description": "Listen for incoming events from Telegram"
+      },
+      {
+        "step": 2,
+        "name": "Tool Selection",
+        "node": "agent_1",
+        "description": "AI Agent analyzes input and selects appropriate tools"
+      },
+      {
+        "step": 3,
+        "name": "LLM Processing",
+        "node": "tool_1",
+        "description": "OpenAI Chat Model processes the request"
+      },
+      {
+        "step": 4,
+        "name": "Memory Storage",
+        "node": "memory_1",
+        "description": "Store intermediate results in buffer memory"
+      },
+      {
+        "step": 5,
+        "name": "Logical Reasoning",
+        "node": "agent_2",
+        "description": "Reasoning Agent performs logical analysis"
+      },
+      {
+        "step": 6,
+        "name": "Image Generation",
+        "node": "tool_2",
+        "description": "Generate images using DALL-E if needed"
+      },
+      {
+        "step": 7,
+        "name": "Quality Validation",
+        "node": "agent_3",
+        "description": "Validate output quality and completeness"
+      },
+      {
+        "step": 8,
+        "name": "Quality Check",
+        "node": "condition_1",
+        "description": "Check if quality meets threshold requirements"
+      },
+      {
+        "step": 9,
+        "name": "Creative Enhancement",
+        "node": "agent_4",
+        "description": "Creative Agent enhances output if needed"
+      },
+      {
+        "step": 10,
+        "name": "Output Delivery",
+        "node": "output_1",
+        "description": "Send final reply to user"
+      }
+    ]
+  },
+  "metrics": {
+    "performance": {
+      "avg_response_time": "2.5s",
+      "success_rate": "95%",
+      "error_rate": "5%",
+      "throughput": "100 requests/minute"
+    },
+    "quality": {
+      "completeness_threshold": 0.8,
+      "relevance_threshold": 0.7,
+      "coherence_threshold": 0.8,
+      "helpfulness_threshold": 0.7
+    }
+  },
+  "monitoring": {
+    "logging": {
+      "level": "INFO",
+      "format": "JSON",
+      "output": "file",
+      "file_path": "logs/agent_orchestrator.log"
+    },
+    "metrics_collection": {
+      "enabled": true,
+      "interval": 60,
+      "exporters": ["prometheus", "grafana"]
+    }
+  }
+}

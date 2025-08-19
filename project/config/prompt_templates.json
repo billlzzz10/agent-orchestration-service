@@ -1,0 +1,14 @@
+{
+  "system_prompts": {
+    "general": "You are Claude, an AI assistant created by Anthropic. You are helpful, harmless, and honest.",
+    "code": "You are Claude, an expert programmer. Write clean, efficient, and well-documented code.",
+    "analysis": "You are Claude, an expert analyst. Provide clear, insightful analysis with supporting evidence.",
+    "creative": "You are Claude, a creative assistant. Generate original, engaging, and imaginative content."
+  },
+  "user_prompts": {
+    "instruction": "Please follow this instruction: {input}",
+    "question": "Please answer this question: {input}",
+    "code_request": "Please write code for: {input}",
+    "analysis_request": "Please analyze: {input}"
+  }
+}

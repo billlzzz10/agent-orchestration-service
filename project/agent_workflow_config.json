@@ -1,0 +1,173 @@
+{
+  "nodes": [
+    {
+      "id": "input_1",
+      "name": "Listen for incoming events",
+      "node_type": "input",
+      "config": {
+        "source": "telegram",
+        "event_types": [
+          "message",
+          "command"
+        ]
+      },
+      "connections": []
+    },
+    {
+      "id": "agent_1",
+      "name": "AI Agent1: Tools Agent",
+      "node_type": "agent",
+      "config": {
+        "agent_type": "tools_agent",
+        "capabilities": [
+          "text_analysis",
+          "image_generation"
+        ]
+      },
+      "connections": []
+    },
+    {
+      "id": "tool_1",
+      "name": "OpenAI Chat Model",
+      "node_type": "tool",
+      "config": {
+        "model": "gpt-4",
+        "max_tokens": 2048,
+        "temperature": 0.7
+      },
+      "connections": []
+    },
+    {
+      "id": "memory_1",
+      "name": "Window Buffer Memory",
+      "node_type": "memory",
+      "config": {
+        "max_size": 1000,
+        "retention_policy": "lru"
+      },
+      "connections": []
+    },
+    {
+      "id": "agent_2",
+      "name": "Reasoning Agent",
+      "node_type": "agent",
+      "config": {
+        "agent_type": "reasoning_agent",
+        "capabilities": [
+          "logical_reasoning",
+          "pattern_recognition"
+        ]
+      },
+      "connections": []
+    },
+    {
+      "id": "tool_2",
+      "name": "Generate image in Dalle",
+      "node_type": "tool",
+      "config": {
+        "model": "dall-e-3",
+        "size": "1024x1024",
+        "quality": "standard"
+      },
+      "connections": []
+    },
+    {
+      "id": "agent_3",
+      "name": "Validation Agent",
+      "node_type": "agent",
+      "config": {
+        "agent_type": "validation_agent",
+        "capabilities": [
+          "data_validation",
+          "quality_assurance"
+        ]
+      },
+      "connections": []
+    },
+    {
+      "id": "condition_1",
+      "name": "Quality Check Condition",
+      "node_type": "condition",
+      "config": {
+        "condition_type": "quality_threshold",
+        "threshold": 0.8
+      },
+      "connections": []
+    },
+    {
+      "id": "agent_4",
+      "name": "Creative Agent",
+      "node_type": "agent",
+      "config": {
+        "agent_type": "creative_agent",
+        "capabilities": [
+          "content_generation",
+          "creative_writing"
+        ]
+      },
+      "connections": []
+    },
+    {
+      "id": "output_1",
+      "name": "Send final reply",
+      "node_type": "output",
+      "config": {
+        "destination": "telegram",
+        "format": "text"
+      },
+      "connections": []
+    }
+  ],
+  "agents": {
+    "tools_agent_1": {
+      "type": "tools_agent",
+      "capabilities": [
+        "text_analysis",
+        "image_generation",
+        "code_analysis",
+        "data_validation"
+      ],
+      "config": {}
+    },
+    "reasoning_agent_1": {
+      "type": "reasoning_agent",
+      "capabilities": [
+        "logical_reasoning",
+        "pattern_recognition",
+        "decision_making"
+      ],
+      "config": {}
+    },
+    "creative_agent_1": {
+      "type": "creative_agent",
+      "capabilities": [
+        "content_generation",
+        "creative_writing",
+        "artistic_expression"
+      ],
+      "config": {}
+    },
+    "validation_agent_1": {
+      "type": "validation_agent",
+      "capabilities": [
+        "data_validation",
+        "quality_assurance",
+        "error_detection"
+      ],
+      "config": {}
+    },
+    "coordination_agent_1": {
+      "type": "coordination_agent",
+      "capabilities": [
+        "agent_coordination",
+        "workflow_management",
+        "task_routing"
+      ],
+      "config": {}
+    }
+  },
+  "memory_stats": {
+    "buffer_size": 2,
+    "max_size": 1000
+  }
+}

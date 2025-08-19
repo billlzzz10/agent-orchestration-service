@@ -1,0 +1,56 @@
+{
+  "total_pairs": 43,
+  "avg_similarity": 0.14895752931444298,
+  "worst_matches": [
+    {
+      "query": "Implement bubble sort",
+      "answer": "To make a cake, you'll need flour, sugar, eggs, and butter. Mix the dry ingredients, then add wet ingredients and bake at 350°F for 30 minutes.",
+      "similarity": 0.0
+    },
+    {
+      "query": "How to optimize database queries?",
+      "answer": "Recursion is a programming technique where a function calls itself to solve smaller subproblems.",
+      "similarity": 0.058823529411764705
+    },
+    {
+      "query": "How to optimize database queries?",
+      "answer": "Recursion is a programming technique where a function calls itself to solve smaller subproblems.",
+      "similarity": 0.058823529411764705
+    },
+    {
+      "query": "How to optimize database queries?",
+      "answer": "Recursion is a programming technique where a function calls itself to solve smaller subproblems.",
+      "similarity": 0.058823529411764705
+    },
+    {
+      "query": "How to optimize database queries?",
+      "answer": "Recursion is a programming technique where a function calls itself to solve smaller subproblems.",
+      "similarity": 0.058823529411764705
+    },
+    {
+      "query": "How to optimize database queries?",
+      "answer": "Recursion is a programming technique where a function calls itself to solve smaller subproblems.",
+      "similarity": 0.058823529411764705
+    },
+    {
+      "query": "What's the weather like?",
+      "answer": "Climate change refers to long-term shifts in global weather patterns and average temperatures, primarily caused by human activities like burning fossil fuels.",
+      "similarity": 0.07692307692307693
+    },
+    {
+      "query": "What's the weather like?",
+      "answer": "Climate change refers to long-term shifts in global weather patterns and average temperatures, primarily caused by human activities like burning fossil fuels.",
+      "similarity": 0.07692307692307693
+    },
+    {
+      "query": "Role: Chef. How to make pasta?",
+      "answer": "As a chef, I recommend boiling salted water, cooking pasta al dente, and finishing with quality sauce.",
+      "similarity": 0.09523809523809523
+    },
+    {
+      "query": "What is quantum computing?",
+      "answer": "Quantum computing uses quantum mechanical phenomena like superposition and entanglement to process information in ways that classical computers cannot.",
+      "similarity": 0.1
+    }
+  ]
+}

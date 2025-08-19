@@ -1,0 +1,308 @@
+{
+  "clusters": {
+    "9": {
+      "size": 2,
+      "sources": {
+        "sample_data": 1,
+        "code-alpaca": 1
+      },
+      "intents": {
+        "instruction": 2
+      },
+      "top_source": "sample_data",
+      "top_intent": "instruction"
+    },
+    "3": {
+      "size": 10,
+      "sources": {
+        "sample_data": 1,
+        "promptset": 1,
+        "self-instruct": 1,
+        "alpaca": 1,
+        "dolly": 1,
+        "sharegpt": 1,
+        "ultrachat": 1,
+        "evol-instruct": 1,
+        "openhermes": 1,
+        "tulu": 1
+      },
+      "intents": {
+        "question": 3,
+        "instruction": 7
+      },
+      "top_source": "sample_data",
+      "top_intent": "instruction"
+    },
+    "4": {
+      "size": 1,
+      "sources": {
+        "sample_data": 1
+      },
+      "intents": {
+        "code": 1
+      },
+      "top_source": "sample_data",
+      "top_intent": "code"
+    },
+    "8": {
+      "size": 2,
+      "sources": {
+        "sample_data": 1,
+        "open-orca": 1
+      },
+      "intents": {
+        "question": 1,
+        "roleplay": 1
+      },
+      "top_source": "sample_data",
+      "top_intent": "question"
+    },
+    "0": {
+      "size": 4,
+      "sources": {
+        "sample_data": 1,
+        "promptset": 1,
+        "open-orca": 1,
+        "tulu": 1
+      },
+      "intents": {
+        "instruction": 3,
+        "roleplay": 1
+      },
+      "top_source": "sample_data",
+      "top_intent": "instruction"
+    },
+    "6": {
+      "size": 5,
+      "sources": {
+        "sample_data": 1,
+        "sharegpt": 2,
+        "ultrachat": 2
+      },
+      "intents": {
+        "question": 5
+      },
+      "top_source": "sharegpt",
+      "top_intent": "question"
+    },
+    "7": {
+      "size": 2,
+      "sources": {
+        "sample_data": 2
+      },
+      "intents": {
+        "instruction": 1,
+        "question": 1
+      },
+      "top_source": "sample_data",
+      "top_intent": "instruction"
+    },
+    "1": {
+      "size": 3,
+      "sources": {
+        "sample_data": 1,
+        "code-alpaca": 1,
+        "tulu": 1
+      },
+      "intents": {
+        "question": 2,
+        "instruction": 1
+      },
+      "top_source": "sample_data",
+      "top_intent": "question"
+    },
+    "5": {
+      "size": 2,
+      "sources": {
+        "sample_data": 1,
+        "open-orca": 1
+      },
+      "intents": {
+        "instruction": 1,
+        "question": 1
+      },
+      "top_source": "sample_data",
+      "top_intent": "instruction"
+    },
+    "2": {
+      "size": 12,
+      "sources": {
+        "promptset": 1,
+        "self-instruct": 2,
+        "alpaca": 2,
+        "dolly": 2,
+        "evol-instruct": 2,
+        "code-alpaca": 1,
+        "openhermes": 2
+      },
+      "intents": {
+        "code": 6,
+        "instruction": 6
+      },
+      "top_source": "self-instruct",
+      "top_intent": "code"
+    }
+  },
+  "overlap_matrix": {
+    "sample_data": {
+      "code-alpaca": 2,
+      "promptset": 2,
+      "self-instruct": 1,
+      "alpaca": 1,
+      "dolly": 1,
+      "sharegpt": 2,
+      "ultrachat": 2,
+      "evol-instruct": 1,
+      "openhermes": 1,
+      "tulu": 3,
+      "open-orca": 3
+    },
+    "code-alpaca": {
+      "sample_data": 2,
+      "tulu": 1,
+      "promptset": 1,
+      "self-instruct": 1,
+      "alpaca": 1,
+      "dolly": 1,
+      "evol-instruct": 1,
+      "openhermes": 1,
+      "sharegpt": 0,
+      "ultrachat": 0,
+      "open-orca": 0
+    },
+    "promptset": {
+      "sample_data": 2,
+      "self-instruct": 2,
+      "alpaca": 2,
+      "dolly": 2,
+      "sharegpt": 1,
+      "ultrachat": 1,
+      "evol-instruct": 2,
+      "openhermes": 2,
+      "tulu": 2,
+      "open-orca": 1,
+      "code-alpaca": 1
+    },
+    "self-instruct": {
+      "sample_data": 1,
+      "promptset": 2,
+      "alpaca": 2,
+      "dolly": 2,
+      "sharegpt": 1,
+      "ultrachat": 1,
+      "evol-instruct": 2,
+      "openhermes": 2,
+      "tulu": 1,
+      "code-alpaca": 1,
+      "open-orca": 0
+    },
+    "alpaca": {
+      "sample_data": 1,
+      "promptset": 2,
+      "self-instruct": 2,
+      "dolly": 2,
+      "sharegpt": 1,
+      "ultrachat": 1,
+      "evol-instruct": 2,
+      "openhermes": 2,
+      "tulu": 1,
+      "code-alpaca": 1,
+      "open-orca": 0
+    },
+    "dolly": {
+      "sample_data": 1,
+      "promptset": 2,
+      "self-instruct": 2,
+      "alpaca": 2,
+      "sharegpt": 1,
+      "ultrachat": 1,
+      "evol-instruct": 2,
+      "openhermes": 2,
+      "tulu": 1,
+      "code-alpaca": 1,
+      "open-orca": 0
+    },
+    "sharegpt": {
+      "sample_data": 2,
+      "promptset": 1,
+      "self-instruct": 1,
+      "alpaca": 1,
+      "dolly": 1,
+      "ultrachat": 2,
+      "evol-instruct": 1,
+      "openhermes": 1,
+      "tulu": 1,
+      "code-alpaca": 0,
+      "open-orca": 0
+    },
+    "ultrachat": {
+      "sample_data": 2,
+      "promptset": 1,
+      "self-instruct": 1,
+      "alpaca": 1,
+      "dolly": 1,
+      "sharegpt": 2,
+      "evol-instruct": 1,
+      "openhermes": 1,
+      "tulu": 1,
+      "code-alpaca": 0,
+      "open-orca": 0
+    },
+    "evol-instruct": {
+      "sample_data": 1,
+      "promptset": 2,
+      "self-instruct": 2,
+      "alpaca": 2,
+      "dolly": 2,
+      "sharegpt": 1,
+      "ultrachat": 1,
+      "openhermes": 2,
+      "tulu": 1,
+      "code-alpaca": 1,
+      "open-orca": 0
+    },
+    "openhermes": {
+      "sample_data": 1,
+      "promptset": 2,
+      "self-instruct": 2,
+      "alpaca": 2,
+      "dolly": 2,
+      "sharegpt": 1,
+      "ultrachat": 1,
+      "evol-instruct": 2,
+      "tulu": 1,
+      "code-alpaca": 1,
+      "open-orca": 0
+    },
+    "tulu": {
+      "sample_data": 3,
+      "promptset": 2,
+      "self-instruct": 1,
+      "alpaca": 1,
+      "dolly": 1,
+      "sharegpt": 1,
+      "ultrachat": 1,
+      "evol-instruct": 1,
+      "openhermes": 1,
+      "open-orca": 1,
+      "code-alpaca": 1
+    },
+    "open-orca": {
+      "sample_data": 3,
+      "promptset": 1,
+      "tulu": 1,
+      "code-alpaca": 0,
+      "self-instruct": 0,
+      "alpaca": 0,
+      "dolly": 0,
+      "sharegpt": 0,
+      "ultrachat": 0,
+      "evol-instruct": 0,
+      "openhermes": 0
+    }
+  },
+  "summary": {
+    "total_clusters": 10,
+    "total_overlaps": 81
+  }
+}
