@@ -163,7 +163,8 @@ class DatasetOverlapAnalyzer:
         vectors = self.embedding.fit_transform(texts)
         
         # Clustering
-        n_clusters = min(10, len(set(sources)))  # จำนวน cluster ตาม dataset
+        # ใช้จำนวน cluster ไม่เกินจำนวน record ที่มีอยู่
+        n_clusters = min(10, len(set(sources)), len(records))
         self.clustering = SimpleKMeans(n_clusters=n_clusters)
         self.clustering.fit(vectors)
         
