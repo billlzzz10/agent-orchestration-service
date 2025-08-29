@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Dataset Quality Evaluation using Google Cloud AI Platform
-ประเมินคุณภาพ dataset ที่สร้างจาก build_pairs.py
+Dataset Quality Evaluation
+ประเมินคุณภาพ dataset ที่สร้างจาก build_pairs.py โดยใช้การวิเคราะห์แบบออฟไลน์
 """
 
 import json
