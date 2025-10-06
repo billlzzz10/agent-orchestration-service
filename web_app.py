@@ -199,14 +199,14 @@ def _normalise_tags(tags: List[str]) -> List[str]:
 
 def _get_template(profession: str, template_id: str) -> Dict[str, Any]:
     profession_templates = KNOWLEDGE_TEMPLATES.get(profession, [])
-    general_templates = KNOWLEDGE_TEMPLATES["general"]
-    for template in profession_templates + general_templates:
-        if template["id"] == template_id:
-            return template
-    raise HTTPException(status_code=400, detail="Invalid template for profession")
-
-
-def _validate_profession(profession: str) -> None:
+def _normalise_tags(tags: List[str]) -> List[str]:
+    cleaned: List[str] = []
+    for tag in tags:
+        # Only allow alphanumeric, hyphens, and underscores
+        safe = re.sub(r"[^\w\-_]", "", tag.strip())
+        if safe and len(safe) >= 2:  # Minimum length requirement
+            cleaned.append(safe[:32])
+    return cleaned[:10]
     if profession not in VALID_PROFESSIONS:
         raise HTTPException(status_code=400, detail="Invalid profession")
 
