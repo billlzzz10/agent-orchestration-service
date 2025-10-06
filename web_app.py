@@ -248,9 +248,10 @@ def _create_knowledge_item(
     with KNOWLEDGE_LOCK:
         KNOWLEDGE_ITEMS.insert(0, item)
         # Limit in-memory store size for stability
-        if len(KNOWLEDGE_ITEMS) > 1000:
-            KNOWLEDGE_ITEMS.pop()
-    return item
+        max_items = int(os.environ.get("KNOWLEDGE_MAX_ITEMS", "1000"))
+        if len(KNOWLEDGE_ITEMS) > max_items:
+            # Remove oldest items (FIFO)
+            KNOWLEDGE_ITEMS[:] = KNOWLEDGE_ITEMS[:max_items]
 
 
 def _serialise_item(item: KnowledgeItem) -> Dict[str, Any]:
