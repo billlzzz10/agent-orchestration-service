@@ -36,10 +36,17 @@ def main() -> int:
             return 0
 
     data = _load_dataset(dataset_path)
-    queries = [record.get("user_input", "") for record in data]
-    targets = [record.get("target_prompt", "") for record in data]
-    vectorizer = TfidfVectorizer(max_features=1000, stop_words="english")
-
+    data = _load_dataset(dataset_path)
+    queries = []
+    targets = []
+    for record in data:
+        user_input = record.get("user_input", "")
+        target_prompt = record.get("target_prompt", "")
+        if not user_input or not target_prompt:
+            print(f"⚠️ Skipping record with missing fields: {record}")
+            continue
+        queries.append(user_input)
+        targets.append(target_prompt)
     all_texts = queries + targets
     vectorizer.fit(all_texts)
 
