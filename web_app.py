@@ -226,10 +226,18 @@ def _create_knowledge_item(
     safe_tags = _normalise_tags(tags or [])
     preview = html.escape((content or "").strip())[:400]
     item = KnowledgeItem(
-        id=uuid4().hex,
-        source_type=source_type,
-        title=title.strip(),
-        profession=profession,
+    safe_tags = _normalise_tags(tags or [])
+    preview_length = 400
+    content_text = (content or "").strip()
+    if len(content_text) <= preview_length:
+        preview = html.escape(content_text)
+    else:
+        # Truncate at word boundary
+        truncated = content_text[:preview_length]
+        last_space = truncated.rfind(' ')
+        if last_space > preview_length * 0.8:  # Only if we don't lose too much
+            truncated = truncated[:last_space]
+        preview = html.escape(truncated) + "..."
         template_id=template_id,
         template_name=template["name"],
         url=url,
