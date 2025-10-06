@@ -20,12 +20,20 @@ def main() -> int:
         from sklearn.metrics.pairwise import cosine_similarity
     except ModuleNotFoundError:
         print("⚠️ scikit-learn not installed; skipping similarity analysis.")
-        return 0
-
-    dataset_path = Path(__file__).resolve().parent.parent / "dataset.jsonl"
+    dataset_path = Path("dataset.jsonl")
     if not dataset_path.exists():
-        print(f"⚠️ Dataset not found at {dataset_path}")
-        return 0
+        # Try alternative locations
+        alt_paths = [
+            Path(__file__).resolve().parent / "dataset.jsonl",
+            Path(__file__).resolve().parent.parent / "dataset.jsonl"
+        ]
+        for alt_path in alt_paths:
+            if alt_path.exists():
+                dataset_path = alt_path
+                break
+        else:
+            print(f"⚠️ Dataset not found at {dataset_path} or alternative locations")
+            return 0
 
     data = _load_dataset(dataset_path)
     queries = [record.get("user_input", "") for record in data]
