@@ -16,11 +16,10 @@ if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
 SERVER_HOST = "127.0.0.1"
-SERVER_HOST = "127.0.0.1"
 SERVER_PORT = int(os.environ.get("KNOWLEDGE_TEST_PORT", "8765"))
 if not (1024 <= SERVER_PORT <= 65535):
     raise ValueError(f"Invalid test port {SERVER_PORT}. Must be between 1024-65535")
-BASE_URL = f""
+BASE_URL = f"http://{SERVER_HOST}:{SERVER_PORT}"
 @pytest.fixture(scope="session", autouse=True)
 def install_playwright_browsers() -> None:
     """Ensure the Chromium browser is available for end-to-end tests."""
