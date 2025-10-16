@@ -189,24 +189,33 @@ KNOWLEDGE_LOCK = Lock()
 
 
 def _normalise_tags(tags: List[str]) -> List[str]:
+    """Return a constrained, sanitised list of tags."""
+
     cleaned: List[str] = []
     for tag in tags:
-        safe = re.sub(r"[^\w\-]+", " ", tag).strip()
+        # Only allow alphanumeric characters, underscores, and hyphens.
+        safe = re.sub(r"[^\w\-]", "", tag.strip())
         if safe:
             cleaned.append(safe[:32])
     return cleaned[:10]
 
 
 def _get_template(profession: str, template_id: str) -> Dict[str, Any]:
+    """Fetch a template by id, searching profession-specific then general ones."""
+
     profession_templates = KNOWLEDGE_TEMPLATES.get(profession, [])
-def _normalise_tags(tags: List[str]) -> List[str]:
-    cleaned: List[str] = []
-    for tag in tags:
-        # Only allow alphanumeric, hyphens, and underscores
-        safe = re.sub(r"[^\w\-_]", "", tag.strip())
-        if safe and len(safe) >= 2:  # Minimum length requirement
-            cleaned.append(safe[:32])
-    return cleaned[:10]
+    general_templates = KNOWLEDGE_TEMPLATES.get("general", [])
+
+    for template in profession_templates + general_templates:
+        if template["id"] == template_id:
+            return template
+
+    raise HTTPException(status_code=404, detail="Template not found")
+
+
+def _validate_profession(profession: str) -> None:
+    """Ensure the requested profession is supported."""
+
     if profession not in VALID_PROFESSIONS:
         raise HTTPException(status_code=400, detail="Invalid profession")
 
@@ -223,21 +232,27 @@ def _create_knowledge_item(
 ) -> KnowledgeItem:
     _validate_profession(profession)
     template = _get_template(profession, template_id)
+
     safe_tags = _normalise_tags(tags or [])
-    preview = html.escape((content or "").strip())[:400]
-    item = KnowledgeItem(
-    safe_tags = _normalise_tags(tags or [])
-    preview_length = 400
+
     content_text = (content or "").strip()
-    if len(content_text) <= preview_length:
+    preview_length = 400
+    if not content_text:
+        preview = ""
+    elif len(content_text) <= preview_length:
         preview = html.escape(content_text)
     else:
-        # Truncate at word boundary
         truncated = content_text[:preview_length]
-        last_space = truncated.rfind(' ')
-        if last_space > preview_length * 0.8:  # Only if we don't lose too much
+        last_space = truncated.rfind(" ")
+        if last_space > int(preview_length * 0.8):
             truncated = truncated[:last_space]
         preview = html.escape(truncated) + "..."
+
+    item = KnowledgeItem(
+        id=str(uuid4()),
+        source_type=source_type,
+        title=title,
+        profession=profession,
         template_id=template_id,
         template_name=template["name"],
         url=url,
@@ -361,7 +376,7 @@ async def deploy_page(request: Request):
 @app.get("/knowledge", response_class=HTMLResponse)
 async def knowledge_page(request: Request):
     """หน้า knowledge workspace"""
-    return templates.TemplateResponse(request, "knowledge.html", {})
+    return templates.TemplateResponse("knowledge.html", {"request": request})
 
 
 @app.get("/api/knowledge/templates")
