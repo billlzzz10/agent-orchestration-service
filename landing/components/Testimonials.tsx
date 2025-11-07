@@ -23,7 +23,7 @@ const testimonials = [
     role: "Head of AI, Nova Logistics",
     quote:
       "Telemetry from day one meant we could iterate confidently. The Saas UI components let us ship a polished experience fast.",
-    avatar: "https://avatars.githubusercontent.com/u/16960284?v=4"
+    avatar: "/images/avatars/placeholder-2.jpg"
   },
   {
     name: "Anika Johansson",
