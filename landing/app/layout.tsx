@@ -8,7 +8,7 @@ const description =
   "Streamline your AI agent workflows with a secure orchestration platform built for enterprise automation.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://agent-orchestration.example.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || ""),
   title: {
     template: "%s | Agent Orchestration Platform",
     default: title
