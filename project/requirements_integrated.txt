@@ -37,7 +37,7 @@ pytest>=7.4.0
 pytest-asyncio>=0.21.0
 black>=23.0.0
 flake8>=6.0.0
-playwright>=1.44.0
+playwright>=1.44.0,<2.0.0
 
 # Optional: For enhanced features
 redis>=4.6.0
