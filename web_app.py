@@ -268,6 +268,8 @@ def _create_knowledge_item(
             # Remove oldest items (FIFO)
             KNOWLEDGE_ITEMS[:] = KNOWLEDGE_ITEMS[:max_items]
 
+    return item
+
 
 def _serialise_item(item: KnowledgeItem) -> Dict[str, Any]:
     data = item.model_dump()
@@ -342,41 +344,49 @@ load_demo_data()
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
     """หน้าแรกของแอปพลิเคชัน"""
-    return templates.TemplateResponse("index.html", {
-        "request": request,
-        "model_info": DEMO_DATA["model_info"],
-        "test_results": DEMO_DATA["test_results"]
-    })
+    return templates.TemplateResponse(
+        request,
+        "index.html",
+        {
+            "model_info": DEMO_DATA["model_info"],
+            "test_results": DEMO_DATA["test_results"]
+        },
+    )
 
 @app.get("/dataset", response_class=HTMLResponse)
 async def dataset_page(request: Request):
     """หน้าจัดการ dataset"""
-    return templates.TemplateResponse("dataset.html", {
-        "request": request,
-        "conversations": DEMO_DATA["conversations"]
-    })
+    return templates.TemplateResponse(
+        request,
+        "dataset.html",
+        {"conversations": DEMO_DATA["conversations"]},
+    )
 
 @app.get("/model", response_class=HTMLResponse)
 async def model_page(request: Request):
     """หน้าข้อมูลโมเดล"""
-    return templates.TemplateResponse("model.html", {
-        "request": request,
-        "model_info": DEMO_DATA["model_info"],
-        "test_results": DEMO_DATA["test_results"]
-    })
+    return templates.TemplateResponse(
+        request,
+        "model.html",
+        {
+            "model_info": DEMO_DATA["model_info"],
+            "test_results": DEMO_DATA["test_results"]
+        },
+    )
 
 @app.get("/deploy", response_class=HTMLResponse)
 async def deploy_page(request: Request):
     """หน้าจัดการ deployment"""
-    return templates.TemplateResponse("deploy.html", {
-        "request": request,
-        "model_info": DEMO_DATA["model_info"]
-    })
+    return templates.TemplateResponse(
+        request,
+        "deploy.html",
+        {"model_info": DEMO_DATA["model_info"]},
+    )
 
 @app.get("/knowledge", response_class=HTMLResponse)
 async def knowledge_page(request: Request):
     """หน้า knowledge workspace"""
-    return templates.TemplateResponse("knowledge.html", {"request": request})
+    return templates.TemplateResponse(request, "knowledge.html", {})
 
 
 @app.get("/api/knowledge/templates")
