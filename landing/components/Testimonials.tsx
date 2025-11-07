@@ -30,7 +30,7 @@ const testimonials = [
     role: "Product Lead, Aurora Analytics",
     quote:
       "Their orchestration runtime let us orchestrate 20+ agents without rewriting our tooling. We hit SOC2 milestones on schedule.",
-    avatar: "https://avatars.githubusercontent.com/u/3722367?v=4"
+    avatar: "/images/avatars/placeholder-3.jpg"
   }
 ];
 
