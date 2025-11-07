@@ -2,7 +2,7 @@
   color-scheme: light dark;
 }
 
-html {{
+html {
   box-sizing: border-box;
 }}
 *, *::before, *::after {
