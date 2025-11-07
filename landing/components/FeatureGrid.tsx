@@ -48,7 +48,7 @@ export function FeatureGrid() {
       <Stack spacing={4} textAlign="center" maxW="3xl" mx="auto">
         <Heading size="2xl">Ship responsibly at scale</Heading>
         <Text fontSize="lg" color="whiteAlpha.700">
-          The Agent Orchestration Platform combines security tooling with Saas UI components
+          The Agent Orchestration Platform combines security tooling with SaaS UI components
           to help product teams launch workflows that are as compliant as they are fast.
         </Text>
       </Stack>
