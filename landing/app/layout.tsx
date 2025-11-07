@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    url: "https://agent-orchestration.example.com",
+    url: process.env.NEXT_PUBLIC_BASE_URL || "",
     siteName: "Agent Orchestration Platform",
     locale: "en_US",
     type: "website"
