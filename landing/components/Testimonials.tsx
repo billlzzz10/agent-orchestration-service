@@ -16,7 +16,7 @@ const testimonials = [
     role: "VP of Automation, LatticeWorks",
     quote:
       "We reduced governance review cycles from weeks to hours. The pre-built controls made our security team instant fans.",
-    avatar: "https://avatars.githubusercontent.com/u/9942277?v=4"
+    avatar: "/images/avatars/placeholder-1.jpg"
   },
   {
     name: "Oliver Martinez",
