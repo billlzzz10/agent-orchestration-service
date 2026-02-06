@@ -24,7 +24,7 @@ imageio-ffmpeg>=0.4.8
 # Web Framework
 fastapi>=0.100.0
 uvicorn>=0.23.0
-python-multipart>=0.0.6
+python-multipart>=0.0.22
 
 # HTTP and API
 requests>=2.31.0
